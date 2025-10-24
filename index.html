@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>SHA-256 Demo — Interactive</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <main class="container">
+    <h1>SHA-256 Interactive Demo</h1>
+
+    <section class="card">
+      <label for="inputText">Text input</label>
+      <textarea id="inputText" placeholder="Type text here..."></textarea>
+      <div class="row">
+        <button id="hashBtn">Hash (SHA-256)</button>
+        <button id="clearBtn">Clear</button>
+        <label class="toggle">
+          <input id="showInput" type="checkbox" checked /> Show input
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="resultRow">
+        <div>
+          <h3>Hex digest</h3>
+          <pre id="hexOut" class="digest">—</pre>
+          <button class="copyBtn" data-target="hexOut">Copy hex</button>
+        </div>
+        <div>
+          <h3>Base64 digest</h3>
+          <pre id="b64Out" class="digest">—</pre>
+          <button class="copyBtn" data-target="b64Out">Copy base64</button>
+        </div>
+      </div>
+
+      <div class="row fileRow">
+        <label for="fileInput" class="fileLabel">Or hash a file</label>
+        <input id="fileInput" type="file" />
+      </div>
+
+    </section>
+
+    <section class="card verify">
+      <h3>Verify / Compare</h3>
+      <input id="compareInput" placeholder="Paste digest to compare (hex or base64)"/>
+      <button id="compareBtn">Compare</button>
+      <div id="compareResult" class="muted">—</div>
+    </section>
+
+    <section class="card history">
+      <h3>History</h3>
+      <ul id="historyList"></ul>
+      <button id="clearHistory">Clear history</button>
+    </section>
+
+    <footer class="footnote">
+      <small>Note: SHA-256 is a cryptographic hash function, shown here for learning/demo only. For password storage use PBKDF2/Argon2/bcrypt with a salt and iterations.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
